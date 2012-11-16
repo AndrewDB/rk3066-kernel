@@ -1,0 +1,12 @@
+#
+# TV Encoder drivers configuration
+#
+
+menuconfig RK_TVENCODER
+	bool "TV Encoder support"
+    help
+       Support RockChip TV Encoder if you say y here.
+
+source "drivers/video/display/tve/rk610/Kconfig"
+source "drivers/video/display/tve/rk1000/Kconfig"
+source "drivers/video/display/tve/ch7025/Kconfig"

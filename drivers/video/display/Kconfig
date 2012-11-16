@@ -1,0 +1,41 @@
+#
+# Display drivers configuration
+#
+
+menu "Display device support"
+
+config DISPLAY_SUPPORT
+	tristate "Display panel/monitor support"
+	depends on FB_RK29 || FB_ROCKCHIP
+	---help---
+	  This framework adds support for low-level control of a display.
+	  This includes support for power.
+
+	  Enable this to be able to choose the drivers for controlling the
+	  physical display panel/monitor on some platforms. This not only
+	  covers LCD displays for PDAs but also other types of displays
+	  such as CRT, TVout etc.
+
+	  To have support for your specific display panel you will have to
+	  select the proper drivers which depend on this option.
+
+comment "Display hardware drivers"
+	depends on DISPLAY_SUPPORT
+source "drivers/video/display/screen/Kconfig"
+
+#$_rbox_$_modify_$ zhy modified for box display system
+source "drivers/video/display/lcd/Kconfig"
+source "drivers/video/display/hdmi/Kconfig"
+source "drivers/video/display/vga/Kconfig"
+source "drivers/video/display/tve/Kconfig"
+
+config DISPLAY_AUTO_SWITCH
+	bool "Enable auto switch display interface"
+
+config DISPLAY_KEY_LED_CONTROL
+	bool "Enalbe Keyboard and Led Control"
+	help
+		Enable use led to indicate display interface.
+		Enable use keyboard or remote controler to switch display interface or mode.
+#$_rbox_$_modify_$_end
+endmenu

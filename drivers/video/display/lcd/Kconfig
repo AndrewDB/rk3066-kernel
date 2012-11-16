@@ -1,0 +1,7 @@
+#
+# LCD drivers configuration
+#
+
+config DISPLAY_LCD_SUPPORT
+	bool "LCD Screen support"
+	depends on DISPLAY_SUPPORT
